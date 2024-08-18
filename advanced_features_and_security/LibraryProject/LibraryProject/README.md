@@ -1,1 +1,0 @@
-Django project on Security
