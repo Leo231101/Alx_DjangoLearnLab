@@ -20,10 +20,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-    INSTALLED_APPS = [
-    # ...
-    'api',
-    # ...
-]
-
