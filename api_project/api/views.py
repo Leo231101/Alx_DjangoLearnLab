@@ -1,13 +1,12 @@
-from django.shortcuts import render
-from rest_framework import viewsets
-from .models import Book
-from rest_framework.permissions import IsAuthenticated
-from .serializers import BookSerializer
+from rest_framework.generics import ListAPIView
+from .models import Book  # Assuming your model is named Book
+from .serializers import BookSerializer  # Assuming you have a corresponding serializer
+
 
 #Create your views here.
 
-class BookViewSet(viewsets.ModelViewSet):
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
-    permission_classes = [IsAuthenticated]
+class BookList(ListAPIView):
+    queryset = Book.objects.all()  # This is the default queryset that will be used
+    serializer_class = BookSerializer  # This serializer will be used to convert the data
+
 
