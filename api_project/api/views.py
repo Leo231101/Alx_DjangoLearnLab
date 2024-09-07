@@ -1,15 +1,8 @@
-from django.shortcuts import render
-from rest_framework import viewsets
-from .models import Book
-from rest_framework.permissions import IsAuthenticated
-from .serializers import BookSerializer
+from rest_framework import generics
+from .models import Author, Book
+from .serializers import AuthorSerializer
 
-#Create your views here.
-
-class BookViewSet(viewsets.ModelViewSet):
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
-    permission_classes = [IsAuthenticated]
-
-BookList
-generics.ListAPIView
+# List view for Authors, including nested books
+class AuthorListView(generics.ListCreateAPIView):
+    queryset = Author.objects.all()
+    serializer_class = AuthorSerializer
